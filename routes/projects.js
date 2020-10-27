@@ -40,7 +40,7 @@ function setProject(req, res, next) {
 
 function authGetProject(req, res, next) {
   if (!canViewProject(req.user, req.project)) {
-    res.status(401)
+    res.status(403)
     return res.send('Not allowed to view project')
   }
   next()
@@ -48,7 +48,7 @@ function authGetProject(req, res, next) {
 
 function authDeleteProject(req, res, next) {
   if (!canDeleteProject(req.user, req.project)) {
-    res.status(401)
+    res.status(403)
     return res.send('Not allowed to delete project')
   }
   next()
